@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "adsuserbot"
+version = "0.1.0"
+description = ""
+authors = ["rainskin <homemadepunk@yandex.ru>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Pyrogram = "^2.0.59"
+TgCrypto = "^1.2.4"
+envparse = "^0.2.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
