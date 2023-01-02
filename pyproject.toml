@@ -2,7 +2,7 @@
 name = "adsuserbot"
 version = "0.1.0"
 description = ""
-authors = ["rainskin <homemadepunk@yandex.ru>"]
+authors = []
 
 [tool.poetry.dependencies]
 python = "^3.10"

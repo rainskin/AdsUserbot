@@ -1,9 +1,4 @@
-from envparse import env
+from core import env
 
-env.read_envfile()
-
-API_ID = env('API_ID')
-API_HASH = env('API_HASH')
-ADMIN_CHAT_ID = env.int('ADMIN_CHAT_ID')
-
-BLACKLIST_URLS = env.list('BLACKLIST_URLS')
+ADMIN_CHAT_ID = env.get_int('ADMIN_CHAT_ID')
+BLACKLIST_URLS = env.get_list('BLACKLIST_URLS')
