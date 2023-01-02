@@ -1,9 +1,12 @@
-from envparse import env
+from .env import env
 
-env.read_envfile()
+SESSION_PATH = env.get('SESSION_PATH')
+API_ID = env.get_int('API_ID')
+API_HASH = env.get('API_HASH')
+PHONE_NUMBER = env.get('PHONE_NUMBER')
+PASSWORD = env.get('PASSWORD')
 
-SESSION_PATH = env('SESSION_PATH')
-API_ID = env('API_ID')
-API_HASH = env('API_HASH')
-PHONE_NUMBER = env('PHONE_NUMBER')
-PASSWORD = env('PASSWORD')
+MONGO_DB = env.get('MONGO_DB')
+MONGO_HOST = env.get('MONGO_HOST', 'localhost')
+MONGO_USER = env.get('MONGO_USER', None)
+MONGO_PASSWORD = env.get('MONGO_PASSWORD', None)

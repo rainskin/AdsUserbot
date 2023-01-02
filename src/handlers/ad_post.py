@@ -1,25 +1,17 @@
 from pyrogram import filters, types
-from pyrogram.enums import MessageEntityType
 
 import config
+import lib
+import models
 from core import bot
 
 
 @bot.on_message(filters.channel)
-def forward_ad_post(_, message: types.Message):
-    text = message.text or message.caption
-    entities = message.entities or message.caption_entities or []
+def forward_ad_post(_, msg: types.Message):
+    urls = lib.urls.parse(msg)
+    blacklist_urls = [i.value for i in models.BlacklistUrl.get_docs()]
 
-    for entity in entities:
-        url = None
-
-        if entity.type == MessageEntityType.TEXT_LINK:
-            url = entity.url
-        elif entity.type == MessageEntityType.MENTION:
-            url = 'https://t.me/' + text[entity.offset + 1:entity.offset + entity.length]
-        elif entity.type == MessageEntityType.URL:
-            url = text[entity.offset:entity.offset + entity.length]
-
-        if (url is not None) and url not in config.BLACKLIST_URLS:
-            message.forward(config.ADMIN_CHAT_ID)
+    for url in urls:
+        if url not in blacklist_urls:
+            msg.forward(config.ADMIN_CHAT_ID)
             break
