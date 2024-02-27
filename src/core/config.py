@@ -3,6 +3,7 @@ from .env import env
 SESSION_PATH = env.get('SESSION_PATH')
 API_ID = env.get_int('API_ID')
 API_HASH = env.get('API_HASH')
+USERBOT_SESSION_STRING = env.get('USERBOT_SESSION_STRING')
 PHONE_NUMBER = env.get('PHONE_NUMBER')
 PASSWORD = env.get('PASSWORD')
 
